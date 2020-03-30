@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<title>Memory Game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./css/lib/bootstrap.min.css">
+<link rel="stylesheet" href="./css/lib/bootstrap-grid.min.css">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+	<div id="welcomePage" class="container-fluid">
+		<header id="title"> LETS TEST YOUR MEMORY </header>
+		<div class="row">
+			<div class="col"></div>
+			<div class="col">
+				<form class="form-group">
+					<label for="userName">Enter your name</label> <input id="userName"
+						type="text" placeholder="Enter your name" required
+						class="form-control"> <input type="submit"
+						value="let's start" id="start" class="btn btn-primary gameButton" />
+				</form>
+			</div>
+			<div class="col"></div>
+		</div>
+	</div>
+	<div id="gamePage" class="container-fluid">
+		<div>
+			<header id="welcomeHeader">
+				<span id="greeting"></span>
+				<button id="history" type="button" class="btn btn-primary"
+					data-toggle="modal" data-target="#historyModal">Show
+					History</button>
+				<button id="reset" type="button" class="btn btn-primary">Reset</button>
+				<button id="rules" type="button" class="btn btn-primary"
+					data-toggle="modal" data-target="#rulesModal">Rules</button>
+			</header>
+			<div id="resultMessage"></div>
+			<label for="cardsCount">Please select the number of cards</label> <select
+				id="cardsCount">
+				<option value="">Select</option>
+				<option value="4">4</option>
+				<option value="8">8</option>
+				<option value="12">12</option>
+			</select>
+		</div>
+		<div id="cardsScreen">
+			<div id="card"></div>
+		</div>
+		<div class="row">
+			<div class="col"></div>
+			<div class="col">
+				<button id="play" class="btn btn-primary gameButton">Play</button>
+			</div>
+			<div class="col"></div>
+		</div>
+
+		<div class="modal fade" id="historyModal" tabindex="-1" role="dialog"
+			aria-labelledby="historyModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="historyModalLabel">History</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body" id="historyData"></div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="rulesModal" tabindex="-1" role="dialog"
+			aria-labelledby="rulesModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="rulesModalLabel">Rules</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>This is a fun game to remember numbers</p>
+						<p>You can select the number of cards either 4, 8 or 12 from
+							the drop down, accordingly cards with random numbers are
+							presented on the screen.</p>
+						<p>Remember the numbers on the cards. On click of play button,
+							cards would be flipped to the blank side.Now you have to click
+							the cards in ascending order. If you select all cards in the
+							correct order, you win :)</p>
+						<p>You can also see the history of rounds in the show history.</p>
+						<p>If you want to start again, click on the reset button.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="./js/lib/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="./js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/app/main.js"></script>
+</html>
