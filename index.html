@@ -2,12 +2,13 @@
 <html lang="en-US">
 
 <head>
-<title>Memory Game</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/lib/bootstrap.min.css">
-<link rel="stylesheet" href="./css/lib/bootstrap-grid.min.css">
-<link rel="stylesheet" href="./css/style.css">
+	<title>Memory Game</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./css/lib/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/lib/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
 	<div id="welcomePage" class="container-fluid">
 		<header id="title"> LETS TEST YOUR MEMORY </header>
@@ -15,10 +16,8 @@
 			<div class="col"></div>
 			<div class="col">
 				<form class="form-group">
-					<label for="userName">Enter your name</label> <input id="userName"
-						type="text" placeholder="Enter your name" required
-						class="form-control"> <input type="submit"
-						value="let's start" id="start" class="btn btn-primary gameButton" />
+					<label for="userName">Enter your name</label> <input id="userName" type="text" placeholder="Enter your name"
+					 required class="form-control"> <input type="submit" value="let's start" id="start" class="btn btn-primary gameButton" />
 				</form>
 			</div>
 			<div class="col"></div>
@@ -28,16 +27,13 @@
 		<div>
 			<header id="welcomeHeader">
 				<span id="greeting"></span>
-				<button id="history" type="button" class="btn btn-primary"
-					data-toggle="modal" data-target="#historyModal">Show
+				<button id="history" type="button" class="btn btn-primary" data-toggle="modal" data-target="#historyModal">Show
 					History</button>
 				<button id="reset" type="button" class="btn btn-primary">Reset</button>
-				<button id="rules" type="button" class="btn btn-primary"
-					data-toggle="modal" data-target="#rulesModal">Rules</button>
+				<button id="rules" type="button" class="btn btn-primary" data-toggle="modal" data-target="#rulesModal">Rules</button>
 			</header>
 			<div id="resultMessage"></div>
-			<label for="cardsCount">Please select the number of cards</label> <select
-				id="cardsCount">
+			<label for="cardsCount">Please select the number of cards</label> <select id="cardsCount">
 				<option value="">Select</option>
 				<option value="4">4</option>
 				<option value="8">8</option>
@@ -55,14 +51,12 @@
 			<div class="col"></div>
 		</div>
 
-		<div class="modal fade" id="historyModal" tabindex="-1" role="dialog"
-			aria-labelledby="historyModalLabel" aria-hidden="true">
+		<div class="modal fade" id="historyModal" tabindex="-1" role="dialog" aria-labelledby="historyModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="historyModalLabel">History</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
@@ -70,14 +64,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="modal fade" id="rulesModal" tabindex="-1" role="dialog"
-			aria-labelledby="rulesModalLabel" aria-hidden="true">
+		<div class="modal fade" id="rulesModal" tabindex="-1" role="dialog" aria-labelledby="rulesModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="rulesModalLabel">Rules</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
@@ -101,4 +93,5 @@
 <script type="text/javascript" src="./js/lib/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="./js/lib/bootstrap.min.js"></script>
 <script type="text/javascript" src="./js/app/main.js"></script>
+
 </html>
