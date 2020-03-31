@@ -63,18 +63,22 @@ $(document).ready(() => {
 
 			// loading Cards html
 			for (let i = 0; i < array.length; i++) {
-				cardHTML += `<span class="card opened" data-card=${i}>${array[i]}</span>`;
-				/*
-				 * cardHTML = `<div class="flip-card"> <div
-				 * class="flip-card-inner"> <div class="flip-card-front"> <span
-				 * class="card opened" data-="${array[i]}>${array[i]}</span> </div>
-				 * <div class="flip-card-back"> <span class="card closed"
-				 * data-attr="${array[i]}></span> </div> </div> </div>`;
-				 * $("#cardsScreen").append(cardHTML);
-				 */
+				//	cardHTML += `<span class="card opened" data-card=${i}>${array[i]}</span>`;
+				cardHTML =
+					`<div class=" flippable-card opened" data-card=${i}>
+				 <div class="flippable-card-inner">
+				 <div class="flippable-card-front">
+				 <p class="card-number" >${array[i]}</p>
+			   </div>
+				   <div class="flippable-card-back">
+				   </div>
+				 </div>
+			   </div>`
+
+				$("#cardsScreen").append(cardHTML);
 			}
 
-			$("#cardsScreen").append(cardHTML);
+
 
 			// making copy of actual array for future use
 			const copy = [...array];
@@ -85,27 +89,27 @@ $(document).ready(() => {
 			});
 
 
-			$(".card").bind("click", function () {
+			$(".flippable-card").bind("click", function () {
 				if ($(this).hasClass('closed')) {
-					$(this).addClass('correct').removeClass('closed');
+					$(this).addClass('opened').removeClass('closed');
 					const actualValue = array.shift();
 					const cardValue = copy[$(this).attr('data-card')];
 					// to check if user is clicking on correct order
 					if (actualValue == cardValue) {
-						$(this).text(copy[$(this).attr('data-card')]);
+						$(this).find('p').text(copy[$(this).attr('data-card')]);
 						if (array.length == 0) {
 							$("#resultMessage").text("Congratulations! You win :)").addClass("success");
 							sendResult(userName, copy.length, "won");
 						}
 					}
 					else {
-						$(this).addClass("wrongCard");
+						$(this).addClass("wrong-card");
 						$("#resultMessage").text("Oops!! Better luck next time.").addClass("error");
-						$(".card").removeClass('closed').addClass('opened');
-						$('.card').each(function (i) {
-							$(this).text(copy[$(this).attr('data-card')]);
+						$(".flippable-card").removeClass('closed').addClass('opened');
+						$('.flippable-card').each(function (i) {
+							$(this).find('p').text(copy[$(this).attr('data-card')]);
 						});
-						sendResult(userName, copy.length, "fail");
+						sendResult(userName, copy.length, "failed");
 					}
 				}
 			});
@@ -119,7 +123,7 @@ $(document).ready(() => {
 		if ($("#cardsCount").val() === '') {
 			return;
 		}
-		$(".card").removeClass('opened').addClass('closed').text("");
+		$(".flippable-card").removeClass('opened').addClass('closed').find('p').text("");
 	});
 
 
@@ -155,7 +159,7 @@ $(document).ready(() => {
 				userName: $("#greeting").attr('data-name')
 			}
 		}).done((data) => {
-			let table = '<table><th>Time</th><th>Card Count</th><th>Status</th>';
+			let table = '<table class="table"><thead><th>Date</th><th>Card Count</th><th>Status</th></thead>';
 			data.forEach((item) => {
 				table += `<tr><td>${item.time}</td><td>${item.count}</td><td>${item.status}</td></tr>`;
 			});
@@ -186,7 +190,7 @@ $(document).ready(() => {
 		if (mm < 10) {
 			mm = '0' + mm;
 		}
-		return `${mm}-${dd}-${yyyy} ${hours}::${minutes}`;
+		return `${mm}-${dd}-${yyyy} ${hours}:${minutes}`;
 	}
 });
 

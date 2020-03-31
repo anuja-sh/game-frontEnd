@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="./css/lib/bootstrap.min.css">
 	<link rel="stylesheet" href="./css/lib/bootstrap-grid.min.css">
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/flipCard.css">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
 			<div class="col">
 				<form class="form-group">
 					<label for="userName">Enter your name</label> <input id="userName" type="text" placeholder="Enter your name"
-					 required class="form-control"> <input type="submit" value="let's start" id="start" class="btn btn-primary gameButton" />
+					 required class="form-control" autocomplete="on"> <input type="submit" value="let's start" id="start" class="btn btn-primary gameButton" />
 				</form>
 			</div>
 			<div class="col"></div>
@@ -50,7 +51,6 @@
 			</div>
 			<div class="col"></div>
 		</div>
-
 		<div class="modal fade" id="historyModal" tabindex="-1" role="dialog" aria-labelledby="historyModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -60,7 +60,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<div class="modal-body" id="historyData"></div>
+					<div class="modal-body table-responsive" id="historyData"></div>
 				</div>
 			</div>
 		</div>
