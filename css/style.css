@@ -11,6 +11,7 @@ body {
 
 #gamePage {
 	display: none;
+	text-align: center;
 }
 
 #history {
@@ -56,6 +57,7 @@ body {
 
 #welcomeHeader {
 	padding: 50px;
+	text-align: left;
 }
 
 .card {

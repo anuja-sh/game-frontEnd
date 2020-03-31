@@ -63,7 +63,7 @@ $(document).ready(() => {
 			for (let i = 0; i < array.length; i++) {
 				//	cardHTML += `<span class="card opened" data-card=${i}>${array[i]}</span>`;
 				cardHTML =
-					`<div class=" flippable-card opened" data-card=${i}>
+					`<div class=" flippable-card opened" data-card=${i} tabindex="1">
 				 <div class="flippable-card-inner">
 				 <div class="flippable-card-front">
 				 <p class="card-number" >${array[i]}</p>
@@ -86,8 +86,15 @@ $(document).ready(() => {
 				return first - second;
 			});
 
+			$(".flippable-card").bind("keypress", function (event) {
+				var keycode = (event.keyCode ? event.keyCode : event.which);
+				if (keycode == '13') {
+					$(this).trigger("click");
+				}
+			});
 
-			$(".flippable-card").bind("click", function () {
+			$(".flippable-card").bind("click keypress", function (event) {
+
 				if ($(this).hasClass('closed')) {
 					$(this).addClass('opened').removeClass('closed');
 					const actualValue = array.shift();
@@ -110,8 +117,11 @@ $(document).ready(() => {
 						sendResult(userName, copy.length, "failed");
 					}
 				}
+
 			});
+
 		});
+
 	}
 
 
@@ -122,6 +132,7 @@ $(document).ready(() => {
 			return;
 		}
 		$(".flippable-card").removeClass('opened').addClass('closed').find('p').text("");
+		$(".flippable-card:first-child").focus();
 	});
 
 
